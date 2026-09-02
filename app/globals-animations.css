@@ -1,0 +1,68 @@
+/* =========================================================
+   Zemitro hero animations — paste this at the BOTTOM of
+   app/globals.css. Plain CSS, no tailwind.config needed.
+   ========================================================= */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-rise {
+  opacity: 0;
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulse-dot {
+  0%   { box-shadow: 0 0 0 0 rgba(109, 76, 224, 0.45); }
+  70%  { box-shadow: 0 0 0 7px rgba(109, 76, 224, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(109, 76, 224, 0); }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-out infinite;
+}
+
+@keyframes flow-step {
+  0%, 18%, 100% { border-color: #E7E7EC; }
+  3%, 12%       { border-color: #6D4CE0; }
+}
+.animate-flow-step {
+  animation: flow-step 6s ease-in-out infinite;
+}
+
+@keyframes flow-tag {
+  0%, 18%, 100% { color: #6B6B76; border-color: #E7E7EC; }
+  3%, 12%       { color: #6D4CE0; border-color: #6D4CE0; }
+}
+.animate-flow-tag {
+  animation: flow-tag 6s ease-in-out infinite;
+}
+
+/* ambient background — runs forever, never stops */
+@keyframes drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-30px, 30px) scale(1.08); }
+}
+.animate-drift-a {
+  animation: drift-a 14s ease-in-out infinite;
+}
+
+@keyframes drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(25px, -20px) scale(1.05); }
+}
+.animate-drift-b {
+  animation: drift-b 16s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-pulse-dot,
+  .animate-flow-step,
+  .animate-flow-tag,
+  .animate-drift-a,
+  .animate-drift-b {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

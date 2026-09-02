@@ -5,11 +5,19 @@
   --foreground: #171717;
 }
 
-@theme inline {
+/* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+@import "tailwindcss"; */
+
+@theme {
+  --color-ink: #111111;
+  --color-muted: #6B6B76;
+  --color-line: #E7E7EC;
+  --color-accent: #6D4CE0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,3 +32,171 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* three different movement patterns so lines don't sync up */
+@keyframes row-drift-a {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes row-drift-b {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(12px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes row-drift-c {
+  0%   { transform: translateY(0px); }
+  30%  { transform: translateY(-10px); }
+  70%  { transform: translateY(8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes flow-step {
+  0% {
+    border-color: var(--color-line);
+    box-shadow: none;
+    transform: scale(1);
+  }
+  6% {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 12%, transparent),
+                0 6px 16px -4px color-mix(in srgb, var(--color-accent) 35%, transparent);
+    transform: scale(1.015);
+  }
+  16% {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 12%, transparent),
+                0 6px 16px -4px color-mix(in srgb, var(--color-accent) 35%, transparent);
+    transform: scale(1.015);
+  }
+  26% {
+    border-color: var(--color-line);
+    box-shadow: none;
+    transform: scale(1);
+  }
+  100% {
+    border-color: var(--color-line);
+    box-shadow: none;
+    transform: scale(1);
+  }
+}
+.animate-flow-step {
+  animation: flow-step 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes flow-tag {
+  0% {
+    background-color: var(--color-panel);
+    color: var(--color-muted);
+    border-color: var(--color-line);
+  }
+  6% {
+    background-color: var(--color-accent);
+    color: #ffffff;
+    border-color: var(--color-accent);
+  }
+  16% {
+    background-color: var(--color-accent);
+    color: #ffffff;
+    border-color: var(--color-accent);
+  }
+  26% {
+    background-color: var(--color-panel);
+    color: var(--color-muted);
+    border-color: var(--color-line);
+  }
+  100% {
+    background-color: var(--color-panel);
+    color: var(--color-muted);
+    border-color: var(--color-line);
+  }
+}
+.animate-flow-tag {
+  animation: flow-tag 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+
+/* how to work section */
+@keyframes node-glow {
+  0%   { border-color: var(--color-line); background-color: #ffffff; color: var(--color-muted); box-shadow: none; }
+  4%   { border-color: var(--color-accent); background-color: var(--color-accent); color: #ffffff;
+         box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-accent) 14%, transparent); }
+  40%  { border-color: var(--color-accent); background-color: var(--color-accent); color: #ffffff;
+         box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-accent) 14%, transparent); }
+  48%  { border-color: var(--color-line); background-color: #ffffff; color: var(--color-muted); box-shadow: none; }
+  100% { border-color: var(--color-line); background-color: #ffffff; color: var(--color-muted); box-shadow: none; }
+}
+.animate-node-glow {
+  animation: node-glow 12s cubic-bezier(0.65, 0, 0.35, 1) infinite backwards;
+}
+
+@keyframes node-check {
+  0%   { opacity: 0; transform: scale(0.5); }
+  4%   { opacity: 1; transform: scale(1); }
+  40%  { opacity: 1; transform: scale(1); }
+  48%  { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
+.animate-node-check {
+  animation: node-check 12s cubic-bezier(0.65, 0, 0.35, 1) infinite backwards;
+}
+
+@keyframes bubble-pop {
+  0%   { opacity: 0; transform: translateY(8px) scale(0.92); }
+  4%   { opacity: 1; transform: translateY(0) scale(1); }
+  40%  { opacity: 1; transform: translateY(0) scale(1); }
+  46%  { opacity: 0; transform: translateY(4px) scale(0.96); }
+  100% { opacity: 0; transform: translateY(4px) scale(0.96); }
+}
+.animate-bubble-pop {
+  animation: bubble-pop 12s cubic-bezier(0.65, 0, 0.35, 1) infinite backwards;
+}
+
+/* cursor */
+.custom-cursor-active,
+.custom-cursor-active a,
+.custom-cursor-active button {
+  cursor: none;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  transition: opacity 0.2s ease;
+}
+
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.cursor-ring--active {
+  width: 56px;
+  height: 56px;
+  border-color: transparent;
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+.cursor-ring--down {
+  width: 28px;
+  height: 28px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+  .custom-cursor-active,
+  .custom-cursor-active a,
+  .custom-cursor-active button {
+    cursor: auto;
+  }
+}
+
+
