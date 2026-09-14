@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nodelith.cloud/sitemap.xml
