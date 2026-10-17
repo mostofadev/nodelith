@@ -7,12 +7,12 @@ export default function IndustriesHero() {
         <Badge label="Who We Work With" />
 
         <h1 className="font-display mt-4.5 mb-4 text-[30px] font-semibold leading-[1.15] tracking-tight sm:text-[38px]">
-          Built for businesses like yours.
+          Built for businesses that run on calls and bookings.
         </h1>
 
-        <p className="mx-auto max-w-[480px] text-[15.5px] leading-relaxed text-muted">
-          Every industry loses leads differently. Here&apos;s how we fix it
-          for yours.
+        <p className="mx-auto max-w-[520px] text-[15.5px] leading-relaxed text-muted">
+          Dental clinics, med spas, and local service businesses lose bookings
+          in different places. Here is what we set up for each.
         </p>
       </div>
     </section>

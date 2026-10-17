@@ -10,16 +10,27 @@ type FlowCardProps = {
   runtime: string;
   steps: FlowStep[];
   className?: string;
+  statusLabel?: string;
+  footerLabel?: string;
 };
 
-export default function FlowCard({ title, runtime, steps, className = "" }: FlowCardProps) {
+export default function FlowCard({
+  title,
+  runtime,
+  steps,
+  className = "",
+  statusLabel = "Live",
+  footerLabel = "Runtime",
+}: FlowCardProps) {
   return (
-    <div className={`w-full max-w-[330px] border border-line bg-panel p-5.5 ${className}`}>
+    <div
+      className={`w-full max-w-[330px] border border-line bg-panel p-5.5 ${className}`}
+    >
       <div className="mb-4.5 flex items-center justify-between text-[10.5px] font-semibold uppercase tracking-wider text-muted">
         <span>{title}</span>
         <span className="flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 bg-accent" />
-          Live
+          {statusLabel}
         </span>
       </div>
 
@@ -38,7 +49,7 @@ export default function FlowCard({ title, runtime, steps, className = "" }: Flow
       ))}
 
       <div className="mt-4.5 flex justify-between border-t border-line pt-4 text-xs text-muted">
-        <span>Runtime</span>
+        <span>{footerLabel}</span>
         <strong className="font-semibold text-ink">{runtime}</strong>
       </div>
     </div>

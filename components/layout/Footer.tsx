@@ -14,16 +14,25 @@ const QUICK_LINKS: FooterLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+const LEGAL_LINKS: FooterLink[] = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+];
+
+const CONTACT_EMAIL = "contact@nodelith.cloud";
+
 type SocialLink = {
   label: string;
-  href: string;
+  href: string | null;
   icon: "linkedin" | "instagram" | "facebook";
 };
 
+// ⚠️ আসল প্রোফাইল লিংক বসান। null থাকলে ওই আইকন দেখাবে না,
+// তাই সাধারণ linkedin.com এর মতো ভুল লিংক আর লাইভ হবে না।
 const SOCIAL_LINKS: SocialLink[] = [
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-  { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
-  { label: "Facebook", href: "https://facebook.com", icon: "facebook" },
+  { label: "LinkedIn", href: null, icon: "linkedin" },
+  { label: "Instagram", href: null, icon: "instagram" },
+  { label: "Facebook", href: null, icon: "facebook" },
 ];
 
 function SocialIcon({ type }: { type: SocialLink["icon"] }) {
@@ -59,6 +68,8 @@ function SocialIcon({ type }: { type: SocialLink["icon"] }) {
 }
 
 export default function Footer() {
+  const socials = SOCIAL_LINKS.filter((s) => s.href);
+
   return (
     <footer className="border-t border-line">
       <div className="mx-auto w-full max-w-[1180px] px-8 py-16">
@@ -69,8 +80,8 @@ export default function Footer() {
               Nodelith
             </Link>
             <p className="mt-3.5 max-w-[280px] text-[13.5px] leading-relaxed text-muted">
-              AI automation for dental clinics, med spas, and local service
-              businesses — never miss a lead again.
+              Helping dental clinics, med spas, and local service businesses
+              fill their calendar with booked appointments.
             </p>
           </div>
 
@@ -99,26 +110,28 @@ export default function Footer() {
               Get In Touch
             </div>
             <a
-              href="mailto:hello@nodelith.com"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="text-[13.5px] text-muted transition-colors duration-200 hover:text-ink"
             >
-              hello@nodelith.com
+              {CONTACT_EMAIL}
             </a>
 
-            <div className="mt-5 flex items-center gap-3">
-              {SOCIAL_LINKS.map((social) => (
-                <Link
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-muted transition-colors duration-200 hover:border-accent hover:bg-accent hover:text-white"
-                >
-                  <SocialIcon type={social.icon} />
-                </Link>
-              ))}
-            </div>
+            {socials.length > 0 && (
+              <div className="mt-5 flex items-center gap-3">
+                {socials.map((social) => (
+                  <Link
+                    key={social.label}
+                    href={social.href as string}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-muted transition-colors duration-200 hover:border-accent hover:bg-accent hover:text-white"
+                  >
+                    <SocialIcon type={social.icon} />
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
@@ -127,7 +140,18 @@ export default function Footer() {
           <p className="text-[12.5px] text-muted">
             © {new Date().getFullYear()} Nodelith. All rights reserved.
           </p>
-          <p className="text-[12.5px] text-muted">Built with care, powered by automation.</p>
+          <ul className="flex items-center gap-5">
+            {LEGAL_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-[12.5px] text-muted transition-colors duration-200 hover:text-ink"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

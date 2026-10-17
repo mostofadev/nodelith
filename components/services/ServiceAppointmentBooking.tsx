@@ -1,9 +1,9 @@
 import Badge from "../ui/Badge";
 
 const BOOKING_STEPS = [
-  { label: "Customer Inquires", detail: "Via text, chat, or call" },
-  { label: "Bot Checks Availability", detail: "Reads your real calendar" },
-  { label: "Appointment Confirmed", detail: "Auto-added, reminder scheduled" },
+  { label: "Customer Reaches Out", detail: "By text, chat, or a missed call" },
+  { label: "Simple Booking Path", detail: "They see open times and pick one" },
+  { label: "Appointment Confirmed", detail: "They get a confirmation, and you see it on your schedule" },
 ];
 
 export default function ServiceAppointmentBooking() {
@@ -28,14 +28,14 @@ export default function ServiceAppointmentBooking() {
         </div>
 
         <div className="order-1 lg:order-2">
-          <Badge label="Service 02" />
+          <Badge label="Part of Offer 1" />
           <h2 className="font-display mt-4 mb-4 text-[24px] font-semibold tracking-tight sm:text-[28px]">
-            Automated Appointment Booking
+            Easy Online Booking
           </h2>
           <p className="max-w-[440px] text-[14.5px] leading-relaxed text-muted">
-            No more back-and-forth over available time slots. The system
-            checks your calendar in real time and books the appointment
-            directly — 24/7, without anyone on your team touching a phone.
+            Less phone tag. Customers can pick a time that works for them, and
+            the appointment lands on your schedule. We set it up to work with
+            the booking tool or calendar your business already uses.
           </p>
         </div>
       </div>

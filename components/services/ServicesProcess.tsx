@@ -1,10 +1,10 @@
 import Badge from "../ui/Badge";
 
 const PROCESS_STEPS = [
-  { label: "Discovery", detail: "We map your current lead flow and gaps" },
-  { label: "Build", detail: "Custom automation set up around your business" },
-  { label: "Test", detail: "Real scenarios run before anything goes live" },
-  { label: "Launch", detail: "System goes live, you start capturing leads" },
+  { label: "Free Audit", detail: "We review your Google profile, website, phone, and reviews" },
+  { label: "Setup", detail: "We fix and build what is missing, with your approval" },
+  { label: "Test", detail: "We check that calls, texts, and booking work before launch" },
+  { label: "Go Live & Measure", detail: "You see simple reports, and we keep improving" },
 ];
 
 export default function ServicesProcess() {
@@ -14,7 +14,7 @@ export default function ServicesProcess() {
         <div className="mx-auto max-w-[560px] text-center">
           <Badge label="How We Work" />
           <h2 className="font-display mt-4 mb-4 text-[24px] font-semibold tracking-tight sm:text-[28px]">
-            From first call to live system.
+            From first call to a fuller calendar.
           </h2>
         </div>
 

@@ -12,59 +12,66 @@ type Service = {
 const SERVICES: Service[] = [
   {
     number: "01",
-    title: "Missed Call & Lead Recovery",
-    description: "Every missed call or unanswered form instantly triggers a text-back — so a busy phone line never costs you a booking.",
-    icon: "missed-call",
-  },
-  {
-    number: "02",
-    title: "AI Chatbot Integration",
-    description: "Instant 24/7 replies on your website and social channels — questions answered and leads captured the moment they arrive.",
-    icon: "chatbot",
-  },
-  {
-    number: "03",
-    title: "Business Process Automation",
-    description: "Booking confirmations, follow-ups, and reminders sent automatically — no more manual, repetitive replies.",
-    icon: "automation",
-  },
-  {
-    number: "04",
-    title: "CRM & Lead Routing",
-    description: "Every lead qualified and routed to the right person automatically, with your CRM updated in real time.",
-    icon: "crm",
-  },
-  {
-    number: "05",
-    title: "Ongoing Support & Maintenance",
-    description: "We don't disappear after launch — continuous monitoring and improvements as your business grows.",
+    title: "Google Profile & Social Setup",
+    description:
+      "We set up and clean up your Google Business Profile and your business social accounts, so people who search for you find a complete, professional listing.",
     icon: "support",
   },
   {
-    number: "06",
-    title: "Custom Website Development",
-    description: "Fast, mobile-friendly websites built with modern tech — the foundation everything above runs on.",
+    number: "02",
+    title: "A Website That Books",
+    description:
+      "A fast, mobile-friendly website with a clear next step on every page, so visitors call or book instead of leaving.",
     icon: "website",
+  },
+  {
+    number: "03",
+    title: "Missed-Call Text-Back",
+    description:
+      "When a call goes unanswered, the customer gets an instant text and a simple way to book. A busy phone line stops costing you appointments.",
+    icon: "missed-call",
+  },
+  {
+    number: "04",
+    title: "Chat on Your Website & Messages",
+    description:
+      "A chatbot answers common questions and helps people book, even when your team is busy or closed.",
+    icon: "chatbot",
+  },
+  {
+    number: "05",
+    title: "Automatic Review Requests",
+    description:
+      "After each visit or job, every customer gets the same polite request to share their experience on Google. No gifts, no filtering by satisfaction.",
+    icon: "automation",
+  },
+  {
+    number: "06",
+    title: "Google Ads, If You Need Them",
+    description:
+      "If your business needs more customers faster, we set up and manage your ads. Ad spend is paid by you directly to Google.",
+    icon: "crm",
   },
 ];
 
+
 const INCLUDED = [
-  "Custom-built for your business, not templated",
-  "Live in days, not months",
-  "One team for setup, automation & support",
-  "No long-term contract required",
+  "Done for you, so your team keeps working",
+  "One team for profile, website, calls, and reviews",
+  "30-day result promise (terms apply)",
+  "Simple reports so you can see the results",
 ];
 
 export default function ServicesSection() {
   return (
     <section className="border-t border-line py-20 lg:py-28">
       <div className="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-14 px-8 lg:grid-cols-[1.3fr_.7fr] lg:gap-16">
-        {/* Left — services list */}
+     
         <div>
           <div className="mb-14 animate-rise">
-            <Badge label="Services" />
+            <Badge label="What We Set Up" />
             <h2 className="font-display mt-4.5 text-[28px] font-semibold leading-[1.15] tracking-tight sm:text-[34px]">
-              Everything you need, end to end.
+              Everything it takes to fill your calendar.
             </h2>
           </div>
 
@@ -94,7 +101,6 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        {/* Right — sticky summary panel */}
         <div className="lg:sticky lg:top-24 lg:h-fit">
           <div className="animate-rise border border-line bg-panel p-6" style={{ animationDelay: ".15s" }}>
             <div className="mb-5 text-[10.5px] font-semibold uppercase tracking-wider text-muted">
@@ -120,15 +126,15 @@ export default function ServicesSection() {
 
             <div className="mb-6 border-t border-line pt-6">
               <div className="font-display text-[15px] font-semibold leading-snug text-ink">
-                Not sure which one fits?
+                Not sure where to start?
               </div>
               <p className="mt-1.5 text-[13px] leading-relaxed text-muted">
-                Book a free 15-minute call and we&apos;ll map out exactly what your business needs.
+                Book a free audit. We look at your profile, website, phone, and reviews, and tell you what to fix first.
               </p>
             </div>
 
             <Button href="/contact" variant="primary" className="!w-full !justify-center">
-              Book a Free Call
+              Book a Free Audit
             </Button>
           </div>
         </div>

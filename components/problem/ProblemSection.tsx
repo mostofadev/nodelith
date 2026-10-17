@@ -6,36 +6,43 @@ type Problem = {
   description: string;
 };
 
-type Stat = {
-  value: string;
+type Leak = {
+  number: string;
   label: string;
 };
 
 const PROBLEMS: Problem[] = [
   {
     number: "01",
-    title: "Missed After-Hours Inquiries",
+    title: "Calls and Messages Go Unanswered",
     description:
-      "Customers message at night or on weekends — and by the time you reply, they've already booked elsewhere.",
+      "You are busy with a patient or a job. The customer does not wait. They try the next business on the list.",
   },
   {
     number: "02",
-    title: "Manual, Repetitive Replies",
+    title: "A Weak Google Profile",
     description:
-      "Your team spends hours answering the same questions over and over.",
+      "Old photos, missing hours, no description. People see it first, and it does not make them call.",
   },
   {
     number: "03",
-    title: "Slow Lead Response",
+    title: "Few or Old Reviews",
     description:
-      "Every hour of delay in responding to a lead lowers your chance of converting them.",
+      "New customers check reviews before they book. A thin or outdated list sends them elsewhere.",
+  },
+  {
+    number: "04",
+    title: "A Website That Does Not Book",
+    description:
+      "Visitors look around and leave. There is no clear next step, and no one replies when they do reach out.",
   },
 ];
 
-const STATS: Stat[] = [
-  { value: "78%", label: "of customers won't wait more than 5 minutes for a reply" },
-  { value: "24hr", label: "average response time without automation" },
-  { value: "3x", label: "more likely to convert with an instant reply" },
+const LEAKS: Leak[] = [
+  { number: "01", label: "A customer searches for your service" },
+  { number: "02", label: "Your profile or website looks thin" },
+  { number: "03", label: "They call, and no one picks up" },
+  { number: "04", label: "They book the business that answered" },
 ];
 
 export default function ProblemSection() {
@@ -71,26 +78,32 @@ export default function ProblemSection() {
           </div>
         </div>
 
-        {/* Right — impact stat panel */}
+        {/* Right — where customers slip away */}
         <div
           className="h-fit animate-rise border border-line bg-panel p-6"
           style={{ animationDelay: ".15s" }}
         >
           <div className="mb-1 text-[10.5px] font-semibold uppercase tracking-wider text-muted">
-            The Cost of Delay
+            Where Customers Slip Away
           </div>
 
-          {STATS.map((stat, index) => (
+          {LEAKS.map((leak, index) => (
             <div
-              key={stat.value}
-              className={`py-5 ${index < STATS.length - 1 ? "border-b border-line" : ""}`}
+              key={leak.number}
+              className={`flex items-start gap-4 py-5 ${
+                index < LEAKS.length - 1 ? "border-b border-line" : ""
+              }`}
             >
-              <div className="font-display text-[34px] font-semibold leading-none text-ink">
-                {stat.value}
-              </div>
-              <p className="mt-2 text-[13px] leading-snug text-muted">{stat.label}</p>
+              <span className="font-display text-[22px] font-semibold leading-none text-accent">
+                {leak.number}
+              </span>
+              <p className="text-[14.5px] leading-snug text-ink">{leak.label}</p>
             </div>
           ))}
+
+          <p className="mt-1 border-t border-line pt-4 text-[13px] leading-snug text-muted">
+            We fix each step, so the customer ends up on your calendar.
+          </p>
         </div>
       </div>
     </section>

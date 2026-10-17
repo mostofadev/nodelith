@@ -1,19 +1,19 @@
-
 type WorkflowNode = {
   leftPct: number;
   topPct: number;
   label: string;
   tag: string;
   delay: number;
-  icon: "trigger" | "logic" | "data";
+  icon: "trigger" | "logic" | "calendar";
 };
 
 const NODES: WorkflowNode[] = [
-  { leftPct: 20, topPct: 13, label: "Missed call detected", tag: "Trigger", delay: 0, icon: "trigger" },
-  { leftPct: 80, topPct: 38, label: "AI text-back sent", tag: "Agent", delay: 3, icon: "logic" },
-  { leftPct: 20, topPct: 63, label: "CRM updated", tag: "Data", delay: 6, icon: "data" },
+  { leftPct: 20, topPct: 13, label: "Customer calls or searches", tag: "Trigger", delay: 0, icon: "trigger" },
+  { leftPct: 80, topPct: 38, label: "Instant text-back", tag: "Reply", delay: 3, icon: "logic" },
+  { leftPct: 20, topPct: 63, label: "Appointment booked", tag: "Booking", delay: 6, icon: "calendar" },
 ];
-// same 0–100 coordinate space as the node leftPct/topPct above — this is what keeps them aligned
+
+// নোডের leftPct/topPct এর সাথে একই 0–100 কো-অর্ডিনেট, এটাই সবকিছু সারিতে রাখে
 const PATH_D = "M20,13 C58,13 58,38 80,38 C42,38 42,63 20,63 C58,63 58,88 80,88";
 
 function NodeIcon({ type }: { type: WorkflowNode["icon"] }) {
@@ -32,12 +32,12 @@ function NodeIcon({ type }: { type: WorkflowNode["icon"] }) {
           <path d="M9.5 3.5V7M14.5 3.5V7M9.5 17V20.5M14.5 17V20.5M3.5 9.5H7M3.5 14.5H7M17 9.5H20.5M17 14.5H20.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
       );
-    case "data":
+    case "calendar":
       return (
         <svg {...common}>
-          <ellipse cx="12" cy="6.5" rx="7" ry="2.6" stroke="currentColor" strokeWidth="1.6" />
-          <path d="M5 6.5v5.5c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6.5" stroke="currentColor" strokeWidth="1.6" />
-          <path d="M5 12v5.5c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V12" stroke="currentColor" strokeWidth="1.6" />
+          <rect x="4" y="5.5" width="16" height="14.5" rx="2" stroke="currentColor" strokeWidth="1.6" />
+          <path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          <path d="M9.5 15l2 2 3.5-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
   }
@@ -47,15 +47,15 @@ export default function AutomationVisual() {
   return (
     <div className="w-full max-w-[540px] border border-line bg-panel">
       <div className="flex items-center justify-between border-b border-line px-6 py-5 text-[11.5px] font-semibold uppercase tracking-wider text-muted">
-        <span>Workflow · Lead Intake</span>
+        <span>How the system works</span>
         <span className="flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-          Live
+          Example
         </span>
       </div>
 
       <div className="relative h-[600px] w-full overflow-hidden">
-        {/* dotted canvas */}
+        {/* ডটেড ক্যানভাস */}
         <div
           className="absolute inset-0"
           style={{
@@ -64,7 +64,7 @@ export default function AutomationVisual() {
           }}
         />
 
-        {/* connector path — same 0-100 coordinate space as the nodes below, so it always lines up */}
+        {/* কানেক্টর পথ */}
         <svg
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
@@ -97,7 +97,7 @@ export default function AutomationVisual() {
           </circle>
         </svg>
 
-        {/* workflow nodes */}
+        {/* ওয়ার্কফ্লো নোড */}
         {NODES.map((node) => (
           <div
             key={node.label}
@@ -127,7 +127,7 @@ export default function AutomationVisual() {
           </div>
         ))}
 
-        {/* client — message delivered moment */}
+        {/* শেষ ধাপ — রিভিউ রিকোয়েস্ট (প্রতিটা কাস্টমারকে সমানভাবে) */}
         <div className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center" style={{ left: "80%", top: "88%" }}>
           <div className="relative">
             <div
@@ -135,7 +135,7 @@ export default function AutomationVisual() {
               style={{ animationDelay: "9s" }}
             >
               <p className="text-[12px] leading-snug text-ink">
-                Hi! Thanks for reaching out — here&apos;s your available package options 👋
+                Thanks for visiting us today! If you&apos;d like, you can share your experience on Google.
               </p>
               <div className="mt-1.5 flex items-center justify-end gap-1">
                 <span className="text-[9px] text-muted">Delivered</span>
@@ -152,21 +152,25 @@ export default function AutomationVisual() {
               style={{ animationDelay: "9s" }}
             >
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="8" r="3.6" stroke="currentColor" strokeWidth="1.6" />
-                <path d="M4.5 20c1.2-4 4-6 7.5-6s6.3 2 7.5 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                <path
+                  d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8-4.3-4.1 5.9-.9L12 3.5z"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinejoin="round"
+                />
               </svg>
             </div>
           </div>
           <div className="mt-3 whitespace-nowrap text-center">
-            <div className="text-[13px] font-medium text-ink">Reply sent</div>
-            <div className="text-[10px] font-semibold uppercase tracking-wider text-muted">Client</div>
+            <div className="text-[13px] font-medium text-ink">Review request sent</div>
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-muted">Every customer</div>
           </div>
         </div>
       </div>
 
       <div className="flex justify-between border-t border-line px-6 py-5 text-xs text-muted">
-        <span>Runtime</span>
-        <strong className="font-semibold text-ink">14 sec</strong>
+        <span>Goal</span>
+        <strong className="font-semibold text-ink">A full calendar</strong>
       </div>
     </div>
   );

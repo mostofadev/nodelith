@@ -16,8 +16,8 @@ export default function ServicesPage() {
   return (
     <>
       <ServicesHero />
-      <ServiceMissedCallRecovery />
       <ServiceAppointmentBooking />
+      <ServiceMissedCallRecovery />
       <ServiceFollowUpReview />
       <ServiceCrmIntegration />
       <ServicesProcess />

@@ -5,13 +5,15 @@ export default function ServicesCta() {
     <section className="py-16 lg:py-20">
       <div className="mx-auto w-full max-w-[560px] px-8 text-center">
         <h2 className="font-display mb-4 text-[24px] font-semibold tracking-tight sm:text-[28px]">
-          Ready to stop losing leads?
+          Ready for a fuller calendar?
         </h2>
         <p className="mx-auto mb-6 max-w-[420px] text-[14.5px] leading-relaxed text-muted">
-          Book a free 15-minute call — we&apos;ll show you exactly where
-          leads are slipping through.
+          Book a free audit. We look at your Google profile, website, phone, and
+          reviews, and tell you what to fix first.
         </p>
-        <Button href="/contact">Book a Call</Button>
+        <Button href="/contact" variant="primary">
+          Book a Free Audit
+        </Button>
       </div>
     </section>
   );

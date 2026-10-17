@@ -1,11 +1,13 @@
 import IndustriesHero from "@/components/industries/IndustriesHero";
 import IndustrySection from "@/components/industries/IndustrySection";
 import { Metadata } from "next";
+
 export const metadata: Metadata = {
   title: "Industries",
   description:
-    "See how Nodelith's automation fits dental clinics, med spas, and local service businesses like HVAC, plumbing, and electrical.",
+    "Nodelith helps dental clinics, med spas, and local service businesses like HVAC, plumbing, and electrical get more booked appointments from calls, searches, and reviews.",
 };
+
 export default function IndustriesPage() {
   return (
     <>
@@ -16,11 +18,16 @@ export default function IndustriesPage() {
         title="Dental Clinics"
         industryKey="dental"
         painPoints={[
-          "Front desk misses calls during patient hours",
-          "No-shows go unnoticed until the chair is empty",
-          "New patient inquiries sit unanswered overnight",
+          "The front desk is busy with patients, and calls go unanswered",
+          "New patients check your Google profile and reviews before they call",
+          "Inquiries that arrive after hours wait until the next day",
         ]}
-        scenario="A patient calls at 6 PM asking about availability. No one answers — by morning, they've already booked with another clinic."
+        solutions={[
+          "A complete Google profile and a website that books",
+          "Instant text-back when the front desk cannot pick up",
+          "The same polite review request after every visit",
+        ]}
+        scenario="A patient calls at 6 PM to ask about availability. No one is there to answer, so they try the next clinic on their list."
       />
 
       <IndustrySection
@@ -29,11 +36,16 @@ export default function IndustriesPage() {
         industryKey="medspa"
         reverse
         painPoints={[
-          "Bookings depend heavily on Instagram DMs and reviews",
-          "Manual follow-up after treatments rarely happens",
-          "Review requests get forgotten in the daily rush",
+          "New clients compare profiles, photos, and reviews before they book",
+          "Inquiries come in by phone, text, and social messages, and some wait too long",
+          "Asking for a review is easy to forget on a busy day",
         ]}
-        scenario="A client loves their treatment but never gets asked for a review. Meanwhile, a competitor's automated request racks up five-star ratings weekly."
+        solutions={[
+          "A professional Google profile and social presence",
+          "Instant replies to inquiries, even after hours",
+          "Review requests sent to every client, with no filtering or incentives",
+        ]}
+        scenario="A client has a great visit but is never asked for a review. Over time, the profile looks thin next to competitors with more recent reviews."
       />
 
       <IndustrySection
@@ -41,11 +53,16 @@ export default function IndustriesPage() {
         title="Local Services (HVAC, Plumbing, Electrical)"
         industryKey="local-services"
         painPoints={[
-          "Techs are on-site and can't answer every call",
-          "Emergency requests need instant response, not voicemail",
-          "Scheduling conflicts happen without real-time calendar sync",
+          "Techs are on a job and cannot answer every call",
+          "Urgent requests need a quick reply, not voicemail",
+          "Customers often call a few companies and go with the one that answers first",
         ]}
-        scenario="A pipe bursts at 9 PM. The customer calls three companies — the first one to text back wins the job, every time."
+        solutions={[
+          "Instant text-back when you miss a call mid-job",
+          "A simple way for customers to book without phone tag",
+          "A Google profile and website that win the first look",
+        ]}
+        scenario="A pipe bursts at 9 PM. The customer calls a few companies, and the one that replies first has the best chance at the job."
       />
     </>
   );

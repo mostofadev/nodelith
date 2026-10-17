@@ -1,8 +1,8 @@
 import Badge from "../ui/Badge";
 
 // Replace these placeholders with your real contact details.
-const EMAIL = "hello@nodelith.com";
-const WHATSAPP_NUMBER = "+8801XXXXXXXXX"; // e.g. "+8801712345678"
+const EMAIL = "contact@nodelith.cloud";
+const WHATSAPP_NUMBER = "+8801613302799"; // e.g. "+8801712345678"
 const WHATSAPP_MESSAGE = "Hi, I'd like to know more about Nodelith's services.";
 
 function WhatsAppIcon() {

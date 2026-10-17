@@ -2,16 +2,16 @@ import Badge from "../ui/Badge";
 
 const PRINCIPLES = [
   {
-    title: "Practical over flashy",
-    detail: "Every system is built to solve one real problem — not to look impressive in a demo.",
+    title: "Plain and practical",
+    detail: "We fix the things that cost you bookings. No hype, no jargon.",
   },
   {
-    title: "Fast to launch",
-    detail: "No months-long builds. Most setups go live within days, not quarters.",
+    title: "Done for you",
+    detail: "We handle the setup, so your team can keep doing the work they do best.",
   },
   {
-    title: "Built around your workflow",
-    detail: "The automation adapts to how your business already runs — not the other way around.",
+    title: "Clear and honest",
+    detail: "You see simple reports. If something is not working, we tell you.",
   },
 ];
 
@@ -22,7 +22,7 @@ export default function Approach() {
         <div className="mx-auto max-w-[560px] text-center">
           <Badge label="The Approach" />
           <h2 className="font-display mt-4 mb-4 text-[24px] font-semibold tracking-tight sm:text-[28px]">
-            How I think about this work.
+            How we work.
           </h2>
         </div>
 

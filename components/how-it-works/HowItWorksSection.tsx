@@ -10,23 +10,27 @@ type Step = {
 const STEPS: Step[] = [
   {
     number: "01",
-    title: "We Learn Your Business",
-    description: "A quick call to understand your specific workflow, tools, and where leads are slipping through.",
+    title: "Free Audit",
+    description:
+      "A short call. We look at your Google profile, website, phone, and reviews, and show you where bookings are slipping away.",
   },
   {
     number: "02",
-    title: "We Build Your System",
-    description: "A custom AI chatbot and automation, tailored to how your team actually works.",
+    title: "We Set It All Up",
+    description:
+      "We fix your Google profile, build your website, and turn on instant text-back for missed calls and automatic review requests. Ads too, if your business needs them. Ad spend is paid by you.",
   },
   {
     number: "03",
     title: "You Go Live",
-    description: "Instant replies, 24/7 — connected to your website, WhatsApp, and social channels.",
+    description:
+      "Calls, searches, and messages start turning into bookings. We handle the setup, so your team keeps doing the work they do best.",
   },
   {
     number: "04",
-    title: "We Support You",
-    description: "Ongoing monitoring, tweaks, and improvements as your business grows.",
+    title: "We Measure Together",
+    description:
+      "You see the results in a simple report, and we keep improving the system after launch.",
   },
 ];
 
@@ -34,11 +38,10 @@ export default function HowItWorksSection() {
   return (
     <section className="border-t border-line py-20 lg:py-28">
       <div className="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-14 px-8 lg:grid-cols-[1fr_.85fr] lg:gap-16">
-        {/* Left — content */}
         <div className="animate-rise">
           <Badge label="How It Works" />
           <h2 className="font-display mt-4.5 mb-10 text-[28px] font-semibold leading-[1.15] tracking-tight sm:text-[34px]">
-            From first call to live in days — not months.
+            From first call to a fuller calendar.
           </h2>
 
           <div className="border-t border-line">
@@ -63,7 +66,6 @@ export default function HowItWorksSection() {
           </div>
         </div>
 
-        {/* Right — automation animation */}
         <div
           className="flex items-start justify-center animate-rise lg:justify-end"
           style={{ animationDelay: ".15s" }}

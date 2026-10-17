@@ -1,4 +1,4 @@
-export type NicheKey ="local-services" | "dental" | "medspa"  ;
+export type NicheKey = "dental" | "medspa" | "local-services";
 
 export type NicheContent = {
   label: string;
@@ -10,44 +10,52 @@ export type NicheContent = {
 };
 
 export const NICHES: Record<NicheKey, NicheContent> = {
-   "local-services": {
-    label: "Local Services",
-    eyebrow: "For HVAC, Plumbing & Electrical",
-    headline: "Every unanswered call is a job to a competitor?",
-    description:
-      "When you're on a job site, calls go unanswered. Our automation instantly responds, captures the issue, and books the appointment — so no lead goes cold.",
-    points: [
-      "Instant response even when you're mid-job",
-      "Appointment booking without back-and-forth calls",
-      "Every lead captured, even after hours",
-    ],
-    stat: { value: "24/7", label: "call coverage, even when your team is on-site" },
-  },
   dental: {
     label: "Dental Clinics",
     eyebrow: "For Dental Clinics",
-    headline: "Missing calls means missing patients?",
+    headline: "A full schedule, without adding front-desk staff.",
     description:
-      "We build automation that instantly texts back missed calls, answers common questions, and books appointments — so a busy front desk never costs you a patient.",
+      "Patients search, call, and check reviews before they book. We set up your Google profile, website, missed-call text-back, and review requests, so more of them end up on your calendar.",
     points: [
-      "Instant text-back on every missed call",
-      "Automated appointment booking, day or night",
-      "Reminders that cut down no-shows",
+      "A complete Google profile and a website that books",
+      "Instant text-back when the front desk is busy",
+      "The same polite review request after every visit",
     ],
-    stat: { value: "< 60s", label: "average callback time after a missed call" },
+    stat: {
+      value: "Full schedule",
+      label: "is the goal: fewer empty slots, without extra front-desk staff",
+    },
   },
   medspa: {
     label: "Med Spas",
     eyebrow: "For Med Spas",
-    headline: "Great results, but not enough reviews?",
+    headline: "Be the first choice when someone searches for treatments.",
     description:
-      "Our automation follows up after every visit — answering questions, encouraging rebooking, and turning happy clients into 5-star reviews automatically.",
+      "New clients compare profiles, photos, and reviews before they book. We set up the full online presence and follow up after every visit, so your calendar keeps filling.",
     points: [
-      "Automated post-visit follow-ups",
-      "Review requests sent at the right moment",
-      "Rebooking reminders that keep your calendar full",
+      "A professional Google profile and social presence",
+      "Instant replies to inquiries, even after hours",
+      "Review requests sent to every client, with no filtering or incentives",
     ],
-    stat: { value: "3x", label: "more reviews collected with automated requests" },
+    stat: {
+      value: "Every client",
+      label: "gets the same review request, with no filtering",
+    },
   },
- 
+  "local-services": {
+    label: "Local Services",
+    eyebrow: "For HVAC, Plumbing & Electrical",
+    headline: "Every unanswered call is a job for your competitor.",
+    description:
+      "When you are on a job, the phone keeps ringing. We make sure missed calls get an instant text and a way to book, and we set up the rest of your online presence so more jobs find you first.",
+    points: [
+      "Instant text-back when you miss a call mid-job",
+      "Booking without back-and-forth phone tag",
+      "A Google profile and website that win the first look",
+    ],
+    stat: {
+      value: "Instant",
+      label: "text-back when you miss a call",
+    },
+  },
 };

@@ -8,10 +8,12 @@ export default function AboutCta() {
           Let&apos;s see if it fits your business.
         </h2>
         <p className="mx-auto mb-6 max-w-[420px] text-[14.5px] leading-relaxed text-muted">
-          Book a free call — no pressure, just a clear look at what&apos;s
-          possible.
+          Book a free audit. No pressure, just a clear look at what to fix
+          first.
         </p>
-        <Button href="/contact">Book a Call</Button>
+        <Button href="/contact" variant="primary">
+          Book a Free Audit
+        </Button>
       </div>
     </section>
   );

@@ -21,8 +21,11 @@ export default function CaseStudiesGrid({ studies }: CaseStudiesGridProps) {
         <div className="mx-auto mb-12 max-w-[560px] text-center">
           <Badge label="Client Results" />
           <h2 className="font-display mt-4 mb-4 text-[24px] font-semibold tracking-tight sm:text-[28px]">
-            Real businesses, real numbers.
+            Results from our clients.
           </h2>
+          <p className="mx-auto max-w-[480px] text-[13px] leading-relaxed text-muted">
+            Measured by us and shared with each client&apos;s permission.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

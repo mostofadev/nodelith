@@ -1,9 +1,10 @@
 import Badge from "../ui/Badge";
 
+
 const INTEGRATIONS = [
-  { label: "Existing CRM", detail: "Syncs leads without duplicate entry" },
-  { label: "Calendar Tools", detail: "Google Calendar, Outlook, Calendly" },
-  { label: "Messaging Channels", detail: "SMS, WhatsApp, email — one inbox" },
+  { label: "Your Booking Tool or Calendar", detail: "We check what you use in the audit, and connect it where we can" },
+  { label: "Your Customer List", detail: "New inquiries are saved so your team can follow up" },
+  { label: "Text and Email", detail: "Replies and confirmations go out from your business number or email" },
 ];
 
 export default function ServiceCrmIntegration() {
@@ -28,14 +29,19 @@ export default function ServiceCrmIntegration() {
         </div>
 
         <div className="order-1 lg:order-2">
-          <Badge label="Service 04" />
+          <Badge label="Part of Offer 1" />
           <h2 className="font-display mt-4 mb-4 text-[24px] font-semibold tracking-tight sm:text-[28px]">
-            CRM &amp; Workflow Integration
+            Works With What You Already Use
           </h2>
           <p className="max-w-[440px] text-[14.5px] leading-relaxed text-muted">
-            No need to rip out what already works. We plug directly into the
-            tools your business already uses — so the automation fits into
-            your workflow, not the other way around.
+            No need to start over. We look at the tools your business uses today
+            and set things up around them where we can. If a tool can&apos;t be
+            connected, we tell you up front and offer a simple alternative.
+          </p>
+
+          <p className="mt-5 max-w-[440px] text-[12.5px] leading-relaxed text-muted">
+            We keep customer information limited to what is needed to reply and
+            book. Please ask us how we handle your data before you start.
           </p>
         </div>
       </div>

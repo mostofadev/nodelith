@@ -5,19 +5,12 @@
   --foreground: #171717;
 }
 
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-@import "tailwindcss"; */
-
 @theme {
   --color-ink: #111111;
   --color-muted: #6B6B76;
   --color-line: #E7E7EC;
   --color-accent: #6D4CE0;
+  --color-panel: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,7 +26,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* three different movement patterns so lines don't sync up */
+/* ---------- row drift (three different patterns so lines don't sync) ---------- */
 @keyframes row-drift-a {
   0%   { transform: translateY(0px); }
   50%  { transform: translateY(-14px); }
@@ -53,25 +46,26 @@ body {
   100% { transform: translateY(0px); }
 }
 
+/* ---------- hero flow card: steps light up top to bottom ---------- */
 @keyframes flow-step {
   0% {
     border-color: var(--color-line);
     box-shadow: none;
     transform: scale(1);
   }
-  6% {
+  4% {
     border-color: var(--color-accent);
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 12%, transparent),
                 0 6px 16px -4px color-mix(in srgb, var(--color-accent) 35%, transparent);
     transform: scale(1.015);
   }
-  16% {
+  22% {
     border-color: var(--color-accent);
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 12%, transparent),
                 0 6px 16px -4px color-mix(in srgb, var(--color-accent) 35%, transparent);
     transform: scale(1.015);
   }
-  26% {
+  28% {
     border-color: var(--color-line);
     box-shadow: none;
     transform: scale(1);
@@ -92,17 +86,17 @@ body {
     color: var(--color-muted);
     border-color: var(--color-line);
   }
-  6% {
+  4% {
     background-color: var(--color-accent);
     color: #ffffff;
     border-color: var(--color-accent);
   }
-  16% {
+  22% {
     background-color: var(--color-accent);
     color: #ffffff;
     border-color: var(--color-accent);
   }
-  26% {
+  28% {
     background-color: var(--color-panel);
     color: var(--color-muted);
     border-color: var(--color-line);
@@ -117,8 +111,7 @@ body {
   animation: flow-tag 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-
-/* how to work section */
+/* ---------- how it works section ---------- */
 @keyframes node-glow {
   0%   { border-color: var(--color-line); background-color: #ffffff; color: var(--color-muted); box-shadow: none; }
   4%   { border-color: var(--color-accent); background-color: var(--color-accent); color: #ffffff;
@@ -154,7 +147,42 @@ body {
   animation: bubble-pop 12s cubic-bezier(0.65, 0, 0.35, 1) infinite backwards;
 }
 
-/* cursor */
+/* ---------- hero entrance + ambient ---------- */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-rise {
+  opacity: 0;
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulse-dot {
+  0%   { box-shadow: 0 0 0 0 rgba(109, 76, 224, 0.45); }
+  70%  { box-shadow: 0 0 0 7px rgba(109, 76, 224, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(109, 76, 224, 0); }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-out infinite;
+}
+
+@keyframes drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-30px, 30px) scale(1.08); }
+}
+.animate-drift-a {
+  animation: drift-a 14s ease-in-out infinite;
+}
+
+@keyframes drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(25px, -20px) scale(1.05); }
+}
+.animate-drift-b {
+  animation: drift-b 16s ease-in-out infinite;
+}
+
+/* ---------- custom cursor ---------- */
 .custom-cursor-active,
 .custom-cursor-active a,
 .custom-cursor-active button {
@@ -187,7 +215,19 @@ body {
   height: 28px;
 }
 
+/* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-pulse-dot,
+  .animate-flow-step,
+  .animate-flow-tag,
+  .animate-drift-a,
+  .animate-drift-b {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   .cursor-dot,
   .cursor-ring {
     display: none;
@@ -198,5 +238,3 @@ body {
     cursor: auto;
   }
 }
-
-
